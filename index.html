@@ -6,77 +6,53 @@
   <title>bAzoodi Support Dashboard</title>
   <style>
     :root{
-      --brand:#6a1b9a;
-      --brand-dark:#4a148c;
-      --bg:#ede7f6;
-      --card:#ffffff;
-      --card-alt:#faf7ff;
-      --text:#333333;
-      --ok:#2e7d32;
-      --warn:#ef6c00;
-      --err:#c62828;
-      --accent:#0288d1;
+      --brand:#6a1b9a; --brand-dark:#4a148c; --bg:#ede7f6; --card:#ffffff;
+      --card-alt:#faf7ff; --text:#333333; --ok:#2e7d32; --warn:#ef6c00;
+      --err:#c62828; --accent:#0288d1;
     }
     *{box-sizing:border-box}
     body{
       font-family:'Segoe UI', Roboto, Helvetica, sans-serif;
-      background:var(--bg);
-      margin:0;
-      min-height:100vh;
-      display:flex;gap:30px;align-items:flex-start;justify-content:center;padding:40px;
-      flex-wrap: wrap;
+      background:var(--bg); margin:0; min-height:100vh;
+      display:flex; gap:30px; align-items:flex-start; justify-content:center; padding:40px; flex-wrap: wrap;
     }
     .overlay{
-      width:400px;max-height:90vh;overflow-y:auto;
-      background:var(--card);
-      border-radius:20px;
-      border-top:6px solid var(--brand);
-      box-shadow:0 12px 30px rgba(0,0,0,0.1);
-      padding:24px;
-      animation:fadeIn .3s ease-out;
+      width:400px; max-height:90vh; overflow-y:auto; background:var(--card);
+      border-radius:20px; border-top:6px solid var(--brand);
+      box-shadow:0 12px 30px rgba(0,0,0,0.1); padding:24px; animation:fadeIn .3s ease-out;
     }
     @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-    h3{margin:0 0 20px;font-size:20px;color:var(--brand-dark);text-transform: uppercase;letter-spacing: 1px;border-bottom: 1px solid #eee;padding-bottom: 10px;}
+    h3{margin:0 0 20px; font-size:18px; color:var(--brand-dark); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #eee; padding-bottom: 10px;}
 
     .message-box{
-      background:var(--card-alt);
-      border:1px solid #e0d7f5;
-      border-radius:12px;
-      padding:14px;margin-bottom:16px;text-align:left;
-      position: relative;
+      background:var(--card-alt); border:1px solid #e0d7f5; border-radius:12px;
+      padding:14px; margin-bottom:16px; text-align:left; position: relative;
     }
     .message-box:hover{background:#f3e5f5;}
-
-    .label{font-size:11px;font-weight:800;margin-bottom:8px;padding:4px 10px;display:inline-block;border-radius:6px;color:#fff;text-transform: uppercase;}
-    .label.refund{background:var(--err)}
-    .label.process{background:var(--accent)}
-    .label.greeting{background:#8e24aa}
-    .label.apology{background:#d81b60}
-    .label.no-issue{background:var(--ok)}
-    .label.issue-found{background:var(--warn)}
-    .label.delivery{background:#5e35b1}
-    .label.starter{background:#1565c0}
-    .label.offer-start{background:#00897b}
-    .label.offer-got{background:#ef6c00}
+    .label{font-size:11px; font-weight:800; margin-bottom:8px; padding:4px 10px; display:inline-block; border-radius:6px; color:#fff; text-transform: uppercase;}
+    .label.refund{background:var(--err)} .label.process{background:var(--accent)}
+    .label.greeting{background:#8e24aa} .label.apology{background:#d81b60}
+    .label.no-issue{background:var(--ok)} .label.issue-found{background:var(--warn)}
+    .label.delivery{background:#5e35b1} .label.starter{background:#1565c0}
+    .label.offer-start{background:#00897b} .label.offer-got{background:#ef6c00}
     .label.farewell{background:#ad1457}
 
-    .message-content{display:flex;gap:10px;align-items:flex-start}
-    .message-text{flex:1;margin:0;color:var(--text);font-size:14px;line-height: 1.5;}
+    .message-content{display:flex; gap:10px; align-items:flex-start}
+    .message-text{flex:1; margin:0; color:var(--text); font-size:13.5px; line-height: 1.5;}
 
     .copy-btn{
-      background:var(--brand);color:#fff;border:0;border-radius:8px;
-      padding:8px 14px;font-size:12px;cursor:pointer;font-weight: 600;
-      transition: all 0.2s;
+      background:var(--brand); color:#fff; border:0; border-radius:8px;
+      padding:6px 10px; font-size:11px; cursor:pointer; font-weight: 600; transition: all 0.2s;
     }
-    .copy-btn:hover{background:var(--brand-dark);transform: scale(1.05);}
+    .copy-btn:hover{background:var(--brand-dark); transform: scale(1.05);}
 
-    /* Tracker Styles */
     .tracker-input {width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px;}
-    .add-btn {width: 100%; background: var(--brand-dark); color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; margin-bottom: 15px;}
-    .issue-item {background: #f9f9f9; padding: 10px; border-radius: 8px; margin-bottom: 8px; border-left: 4px solid var(--warn); display: flex; justify-content: space-between; align-items: center; font-size: 13px;}
+    .add-btn {width: 100%; background: var(--brand-dark); color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; margin-bottom: 15px; font-weight: bold;}
+    .issue-item {background: #f9f9f9; padding: 10px; border-radius: 8px; margin-bottom: 8px; border-left: 4px solid var(--warn); display: flex; justify-content: space-between; align-items: center; font-size: 12px;}
     .issue-item.solved {border-left-color: var(--ok); opacity: 0.7;}
-    .status-toggle {cursor: pointer; font-size: 18px; margin-left: 10px;}
-    .delete-btn {cursor: pointer; color: var(--err); font-weight: bold; margin-left: 10px;}
+    .item-controls {display: flex; gap: 8px; align-items: center;}
+    .status-toggle {cursor: pointer; font-size: 16px;}
+    .delete-btn {cursor: pointer; color: var(--err); font-weight: bold;}
 
     .toast{position:fixed; display:none; padding:10px 20px; border-radius:50px; color:#fff; font-size:14px; font-weight: bold; z-index:9999; background: var(--brand-dark); box-shadow: 0 4px 15px rgba(0,0,0,0.2);}
     .toast.show{display:block; animation:toastFade 1.5s ease forwards}
@@ -86,27 +62,27 @@
 <body>
 
   <div class="overlay">
-    <h3>Refund Request</h3>
+    <h3>Refund Management</h3>
     <div class="message-box">
-      <div class="label refund">Request</div>
+      <div class="label refund">Inquiry</div>
       <div class="message-content">
-        <p class="message-text">Hello sir kindly let me know the reason of refund so i can forward it to the manager</p>
+        <p class="message-text">Hello, could you please provide the reason for your refund request? I will forward the details to our management team for immediate review.</p>
         <button class="copy-btn" data-copy>Copy</button>
       </div>
     </div>
 
     <div class="message-box">
-      <div class="label process">Forwarded</div>
+      <div class="label process">Escalated</div>
       <div class="message-content">
-        <p class="message-text">Your Request Has Been Forwarded You Will Receive response within 12 hours. Ticket# <span id="t37">371</span></p>
+        <p class="message-text">Your request has been officially forwarded. You will receive a response within 12 hours. Ticket# <span id="t37">371</span></p>
         <button class="copy-btn" data-copy data-inc="t37">Copy</button>
       </div>
     </div>
 
     <div style="margin-top: 30px;">
         <h3>Order Issue Tracker</h3>
-        <input type="text" id="orderInput" class="tracker-input" placeholder="Paste Order Link Here...">
-        <button class="add-btn" onclick="addOrder()">+ Add to List</button>
+        <input type="text" id="orderInput" class="tracker-input" placeholder="Paste Order URL here...">
+        <button class="add-btn" onclick="addOrder()">Add to Tracker</button>
         <div id="issueList"></div>
     </div>
   </div>
@@ -116,39 +92,39 @@
     <div class="message-box">
       <div class="label greeting">Greeting</div>
       <div class="message-content">
-        <p class="message-text">Hello im your customer support agent your oder has been assigned to me ticket# <span id="t54">541</span></p>
+        <p class="message-text">Hello, I am your dedicated support agent. Your order has been assigned to me. Reference Ticket# <span id="t54">541</span></p>
         <button class="copy-btn" data-copy data-inc="t54">Copy</button>
       </div>
     </div>
 
     <div class="message-box">
-      <div class="label apology">Apology & Acknowledgement</div>
+      <div class="label apology">Acknowledgement</div>
       <div class="message-content">
-        <p class="message-text">We sincerely apologize for the inconvenience you’re experiencing with your order. Kindly allow us some time to review the details, and we will get back to you with an update shortly.</p>
+        <p class="message-text">We sincerely apologize for the inconvenience you are experiencing. Please allow us a moment to review your order details; we will provide an update shortly.</p>
         <button class="copy-btn" data-copy>Copy</button>
       </div>
     </div>
 
     <div class="message-box">
-      <div class="label no-issue">No Issue Found</div>
+      <div class="label no-issue">Resolution - Clear</div>
       <div class="message-content">
-        <p class="message-text">I have reviewed everything, and it appears to be working correctly. Please ensure that you are not copying any extra spaces with your login and password. If you continue to experience any issues, kindly let me know.</p>
+        <p class="message-text">I have reviewed your account, and everything appears to be functioning correctly. Please ensure there are no leading or trailing spaces when entering your credentials. Let me know if the issue persists.</p>
         <button class="copy-btn" data-copy>Copy</button>
       </div>
     </div>
 
     <div class="message-box">
-        <div class="label issue-found">Issue Found</div>
+        <div class="label issue-found">Resolution - Issue</div>
         <div class="message-content">
-          <p class="message-text">Thank you for your patience. It appears there is an issue with the account. To avoid any further delay, we will provide you with a replacement account. Kindly allow a few minutes while we arrange this for you.</p>
+          <p class="message-text">Thank you for your patience. It appears there is an internal issue with this account. To avoid further delay, I will provide a replacement immediately. Please wait a few minutes while I process this for you.</p>
           <button class="copy-btn" data-copy>Copy</button>
         </div>
       </div>
 
     <div class="message-box">
-      <div class="label delivery">Replacement Delivery</div>
+      <div class="label delivery">Replacement</div>
       <div class="message-content">
-        <p class="message-text">Here is your replacement account. Please check the details and let me know if everything is working correctly. I’ll be here to assist you if you encounter any issues.</p>
+        <p class="message-text">Here are the details for your replacement account. Please verify the login and let me know if everything is working as expected. I am here if you need further assistance.</p>
         <button class="copy-btn" data-copy>Copy</button>
       </div>
     </div>
@@ -157,33 +133,33 @@
   <div class="overlay">
     <h3>Hoyoverse Support</h3>
     <div class="message-box">
-      <div class="label starter">Starter Delivery Confirmation</div>
+      <div class="label starter">Starter Confirmation</div>
       <div class="message-content">
-        <p class="message-text">Dear Customer, thank you for your purchase! 🎉 This offer includes an AR range between 10 to 20 and comes with a randomly assigned 5-star character to give you a great start. Shall I proceed with the delivery?</p>
+        <p class="message-text">Thank you for your purchase! This offer includes an AR range of 10–20 and features a randomly assigned 5-star character. May I proceed with the delivery?</p>
         <button class="copy-btn" data-copy>Copy</button>
       </div>
     </div>
 
     <div class="message-box">
-      <div class="label offer-start">Offer Selection – Start</div>
+      <div class="label offer-start">Custom Selection</div>
       <div class="message-content">
-        <p class="message-text">Dear Customer, thank you for your purchase! 🎉 This offer guarantees one 5-star character, but your account may include additional 5-star characters as well. To ensure the best match, please share your top three preferred characters (priority 1, 2, and 3) along with your desired AR range. I'll begin the account search process right away!</p>
+        <p class="message-text">Thank you for your order! This offer guarantees at least one 5-star character. To help me find the best match, please list your top three preferred characters and your desired AR range. I will begin the search now.</p>
         <button class="copy-btn" data-copy>Copy</button>
       </div>
     </div>
 
     <div class="message-box">
-      <div class="label offer-got">Offer Selection – Acknowledgement</div>
+      <div class="label offer-got">Processing</div>
       <div class="message-content">
-        <p class="message-text">Got it, gamer! I've noted all your details and will get back to you with the best available options. Please note that this process may take some time, which is why the delivery timeframe is set to 24 hours. If no suitable account is found or you’re not satisfied with the options, a full refund will be issued instantly—no questions asked.</p>
+        <p class="message-text">Understood! I have noted your preferences and will locate the best available options. This process may take some time, with a maximum delivery window of 24 hours. If a suitable match isn't found, a full refund will be issued immediately.</p>
         <button class="copy-btn" data-copy>Copy</button>
       </div>
     </div>
 
     <div class="message-box">
-      <div class="label farewell">Cheeky Goodbye</div>
+      <div class="label farewell">Farewell</div>
       <div class="message-content">
-        <p class="message-text">Thanks for hanging out with bAzoodi, gamer! 🎮 May your pulls be lucky and your ping stay low. Until next time!</p>
+        <p class="message-text">Thank you for choosing bAzoodi! May your pulls be legendary and your latency remain low. Until next time!</p>
         <button class="copy-btn" data-copy>Copy</button>
       </div>
     </div>
@@ -201,20 +177,22 @@
     document.addEventListener('click', async (e) => {
       const btn = e.target.closest('[data-copy]');
       if (!btn) return;
-
-      const wrapper = btn.closest('.message-content');
-      const textEl = wrapper.querySelector('.message-text');
-      const text = textEl.innerText;
+      let text = "";
+      
+      if(btn.hasAttribute('data-link-val')) {
+          text = btn.getAttribute('data-link-val');
+      } else {
+          const wrapper = btn.closest('.message-content');
+          text = wrapper.querySelector('.message-text').innerText;
+      }
 
       try {
         await navigator.clipboard.writeText(text);
         showToast('Copied!', btn);
-        
         const incId = btn.getAttribute('data-inc');
         if(incId) {
-            const span = document.getElementById(incId);
-            let val = parseInt(span.innerText);
-            val++;
+            let span = document.getElementById(incId);
+            let val = parseInt(span.innerText) + 1;
             span.innerText = val;
             localStorage.setItem(incId, val);
         }
@@ -223,8 +201,7 @@
 
     function showToast(msg, btn) {
       const t = document.getElementById('toast');
-      t.textContent = msg;
-      t.className = 'toast show';
+      t.textContent = msg; t.className = 'toast show';
       const rect = btn.getBoundingClientRect();
       t.style.top = rect.top + window.scrollY - 40 + 'px';
       t.style.left = rect.left + window.scrollX + 'px';
@@ -237,28 +214,23 @@
         const orders = JSON.parse(localStorage.getItem('bazoodi_orders') || '[]');
         orders.unshift({ text: input.value, status: 'ongoing', id: Date.now() });
         localStorage.setItem('bazoodi_orders', JSON.stringify(orders));
-        input.value = '';
-        renderOrders(orders);
+        input.value = ''; loadOrders();
     }
 
     function loadOrders() {
-        const orders = JSON.parse(localStorage.getItem('bazoodi_orders') || '[]');
-        renderOrders(orders);
-    }
-
-    function renderOrders(orders) {
         const list = document.getElementById('issueList');
+        const orders = JSON.parse(localStorage.getItem('bazoodi_orders') || '[]');
         list.innerHTML = '';
-        orders.forEach(order => {
+        orders.forEach(o => {
             const div = document.createElement('div');
-            div.className = `issue-item ${order.status === 'solved' ? 'solved' : ''}`;
+            div.className = `issue-item ${o.status === 'solved' ? 'solved' : ''}`;
             div.innerHTML = `
-                <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:200px;">${order.text}</span>
-                <div>
-                    <span class="status-toggle" onclick="toggleStatus(${order.id})">${order.status === 'solved' ? '✅' : '⏳'}</span>
-                    <span class="delete-btn" onclick="deleteOrder(${order.id})">✖</span>
-                </div>
-            `;
+                <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:180px;">${o.text}</span>
+                <div class="item-controls">
+                    <button class="copy-btn" data-copy data-link-val="${o.text}">Copy Link</button>
+                    <span class="status-toggle" onclick="toggleStatus(${o.id})">${o.status === 'solved' ? '✅' : '⏳'}</span>
+                    <span class="delete-btn" onclick="deleteOrder(${o.id})">✖</span>
+                </div>`;
             list.appendChild(div);
         });
     }
@@ -266,15 +238,12 @@
     function toggleStatus(id) {
         let orders = JSON.parse(localStorage.getItem('bazoodi_orders'));
         orders = orders.map(o => o.id === id ? {...o, status: o.status === 'solved' ? 'ongoing' : 'solved'} : o);
-        localStorage.setItem('bazoodi_orders', JSON.stringify(orders));
-        renderOrders(orders);
+        localStorage.setItem('bazoodi_orders', JSON.stringify(orders)); loadOrders();
     }
 
     function deleteOrder(id) {
-        let orders = JSON.parse(localStorage.getItem('bazoodi_orders'));
-        orders = orders.filter(o => o.id !== id);
-        localStorage.setItem('bazoodi_orders', JSON.stringify(orders));
-        renderOrders(orders);
+        let orders = JSON.parse(localStorage.getItem('bazoodi_orders')).filter(o => o.id !== id);
+        localStorage.setItem('bazoodi_orders', JSON.stringify(orders)); loadOrders();
     }
   </script>
 </body>
